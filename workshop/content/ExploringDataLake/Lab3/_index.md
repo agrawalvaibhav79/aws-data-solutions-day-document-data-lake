@@ -9,7 +9,10 @@ chapter = true
 1.  Go to [Glue crawler](https://us-east-2.console.aws.amazon.com/glue/home?region=us-east-2#catalog:tab=crawlers) again to create another crawler.  
 1.1 Click on Add crawler and input as below
     On Crawler info> Crawler name = `lab_parquet_crawler`. Click Next.
-    For Data store, Include path as `s3://labdatalake/parquet/`
+    {{% notice info %}}
+    The actual bucket name for your lab will be similar NOT exactly the same
+    {{% /notice %}}
+    For Data store, Include path similar to `s3://labdatalake/parquet/`
     For IAM role, select Choose an existing IAM role and pick the one with `labdatalake` in the name we have been using all along.
     For output, select the `dms_docdb` and for prefix input `parquet_` to differentiate tables in the same database for the lab.
     Finally, Finish and run the crawler as before.   

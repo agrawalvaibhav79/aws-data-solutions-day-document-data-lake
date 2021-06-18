@@ -8,7 +8,10 @@ chapter = true
 In this lab, we will use interactive query service Athena to query processed and crawled data from previous lab using SQL. Lets get started
 
 1.  Go to [Athena console](https://us-east-2.console.aws.amazon.com/athena/home?region=us-east-2#query). First step is to get Athena setup to query successfully. This is a one-time setup for new accounts.   
-1.1 Click on Settings, input Query result location as `s3://labdatalake/athenaqueryresults/` and click Save.
+{{% notice info %}}
+Screenshot is only for illustration purpose, the actual bucket name for your lab will be similar NOT exactly the same
+{{% /notice %}}
+1.1 Click on Settings, input Query result location as s3://**<<labdatalake>>**/athenaqueryresults/ and click Save.
     {{< img "athena-settings.png" "athena-settings1" >}} 
     {{< img "athena-settings2.png" "athena-settings2" >}}   
 1.2 Console is ready to query now. Select Database as `dms_docdb` from left navigation pane.

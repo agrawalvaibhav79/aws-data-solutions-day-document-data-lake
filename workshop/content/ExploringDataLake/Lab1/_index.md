@@ -13,15 +13,18 @@ chapter = true
 {{< img "crawler-console.png" "go to crawler" >}}
 1.2 Enter Crawler name as `dms_source_jhu_crawler` and click Next
 {{< img "crawler1.png" "go to crawler1" >}}
-1.3 Select default selection of Crawler source type as Data stores and Repeat crawls of S3 data stores as Crawl all folders. Click Next       
+1.3 Select default selection of Crawler source type as Data stores and Repeat crawls of S3 data stores as Crawl all folders. Click Next 
+{{% notice info %}}
+Screenshot is only for illustration purpose, the actual bucket name for your lab will be similar NOT exactly the same
+{{% /notice %}}      
 1.4 For Add a data store- 
     keep S3 selected, 
     Connection as blank, 
     Crawl data in with Specified path in my account, 
-    Include path select the S3 bucket and folder where the DMS ingested data is stored as shown `s3://labdatalake/Covid19/enigma-jhu` and click Next
+    For Include path select the S3 bucket and folder where the DMS ingested data is stored; similar to s3://**<<labdatalake>>**/Covid19/enigma-jhu and click Next
     {{< img "crawler-datastore.png" "jhu crawler data store" >}}
 1.5 For Add another data store keep default as No and click Next
-1.6 For Choose an IAM role - select as shown below, provide suffix as `labdatalake` and click Next
+1.6 For Choose an IAM role - select a Role with **labdatalake** in the name as shown below and click Next
     {{< img "crawler-role.png" "crawler role" >}}
 1.7 For Schedule, pick Run on demand option and click Next    
 1.8 For Output, click on Add database, and input `dms_docdb` as Database name and click Create  
@@ -41,17 +44,18 @@ chapter = true
 2. On Glue console, in left navigation pane, click on Crawlers>Add crawler   
  2.1 Enter Crawler name as `dms_source_hosp_bed_crawler` and click Next
 {{< img "crawler2.png" "go to crawler2" >}}
- 2.2 For Crawler source type keep everything as default and Click Next       
+ 2.2 For Crawler source type keep everything as default and Click Next  
+ {{% notice info %}}
+Screenshot is only for illustration purpose, the actual bucket name for your lab will be similar NOT exactly the same
+{{% /notice %}}     
  2.3 For Add a data store- 
     keep S3 selected, 
     Connection as blank, 
     Crawl data in with Specified path in my account, 
-    Include path select the S3 bucket and folder where the DMS ingested data is stored as shown `s3://labdatalake/Covid19/rearc-usa-hospital-beds` and click Next
+    Include path select the S3 bucket and folder where the DMS ingested data is stored; similar to s3://**<<labdatalake>>**/Covid19/rearc-usa-hospital-beds and click Next
     {{< img "crawler2-datastore.png" "jhu crawler data store" >}}
 2.4 For Add another data store keep default as No and click Next   
-2.5 For Choose an IAM role - select the first option of *Update a policy in an IAM role* and for IAM role, select the previously created role eg: 
-    `AWSGlueServiceRole-labdatalake` as shown below. This will add the data store path to the role policy to allow Glue to work on your behalf. Click Next
-    {{< img "existing-crawler-role.png" "existing crawler role" >}}
+2.5 For Choose an IAM role - select an existing Role with **labdatalake** in the name as you did with the previous crawler. Click Next
 2.6 For Schedule, pick Run on demand option and click Next   
 2.7 For Output, from drop down pick previously created database `dms_docdb` as Database 
     Then click Next after leaving everything thing else as default

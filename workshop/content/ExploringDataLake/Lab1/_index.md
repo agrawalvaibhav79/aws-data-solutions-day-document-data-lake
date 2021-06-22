@@ -71,5 +71,7 @@ Screenshot is only for illustration purpose, the actual bucket name for your lab
    explore the schema. For example, enigma_jhu schema would look like this -
    {{< img "enigma_jhu_schema.png" "enigma_jhu_schema" >}}
 
+After you have crawled raw data, lets use the catalog objects as source to transform the data using Glue Studio and ETL jobs next.
+
 
 

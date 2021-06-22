@@ -72,7 +72,7 @@ This way you can query parquet files on S3 location directly using SQL on Athena
     Provide name as `covid_cases_by_usa_view` and click on Create button  
     {{< img "athena-create-view2.png" "athena-create-view2" >}} 
     {{< img "athena-create-view3.png" "athena-create-view3" >}} 
-    c.  You can create a Table **(Try on your own)**
+    c.  You can create a new Table **(Try on your own)**
         You will provide S3 location and file format you want to store data into this new table. This gives analyst simple ETL mechanism using SQL where they can deploy ETL logic and create a table and data files on another S3 location. They may need for intermediate processing or sharing it with other users.
 
 With this you are done trying out how you can leverage Athena for your interactive data query needs on your data lake. This gives you a powerful tool in the hands of your data analysts or data scientists to explore data using SQL. In the next lab we will use Amazon Quicksight to create some visuals and dashboards to show how easily you can consume same data on data lake via different types of tools.

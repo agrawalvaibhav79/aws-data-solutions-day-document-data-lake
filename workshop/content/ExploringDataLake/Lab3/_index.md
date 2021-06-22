@@ -12,8 +12,8 @@ chapter = true
     {{% notice info %}}
     The actual bucket name for your lab will be similar NOT exactly the same
     {{% /notice %}}
-    For Data store, Include path similar to `s3://labdatalake/parquet/`
-    For IAM role, select Choose an existing IAM role and pick the one with `labdatalake` in the name we have been using all along.
+    For Data store, Include path similar to `s3://labdatalake/parquet/`. Lab bucket will have **`dmslabs3bucket`** in the name.
+    For IAM role, select Choose an existing IAM role and pick the one with **`GlueLabRole`** in the name we have been using all along.
     For output, select the `dms_docdb` and for prefix input `parquet_` to differentiate tables in the same database for the lab.
     Finally, Finish and run the crawler as before.   
 1.2 Crawler will run and add 2 tables as shown below:

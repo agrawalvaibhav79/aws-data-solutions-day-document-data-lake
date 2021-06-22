@@ -16,7 +16,7 @@ In this lab we will use the source tables we created using crawlers in previous 
 1.2 You will see the Visual canvas as shown below. Click on first object or node on the visual graph, to reveal its configuration properties on the right.
 Input the configuration as shown below
     {{< img "set-data-source1.png" "set-data-source1" >}}  
-1.3 Next node is ApplyMapping transform node. Click on it provide details for this node configuration. Click on Choose IAM role button and select the same role with **labdatalake** in the name as used in Glue crawler lab. After the role is selected it will display the columns mapped. You can take actions like dropping, changing data type etc, but we will leave all defaults for the lab.
+1.3 Next node is ApplyMapping transform node. Click on it provide details for this node configuration. Click on Choose IAM role button and select the same role with **GlueLabRole** in the name as used in Glue crawler lab. After the role is selected it will display the columns mapped. You can take actions like dropping, changing data type etc, but we will leave all defaults for the lab.
     {{< img "apply-mapping1.png" "apply-mapping1" >}}  
     {{< img "apply-mapping1-role.png" "apply-mapping1-role" >}}  
     {{< img "apply-mapping1-display.png" "apply-mapping1-display" >}}  
@@ -24,7 +24,7 @@ Input the configuration as shown below
 {{% notice info %}}
 Screenshot is only for illustration purpose, the actual bucket name for your lab will be similar NOT exactly the same
 {{% /notice %}}
-1.4 Click on Target node on the graph next. Select Format as Parquet, Compression Type as None and browse and select S3 location with `labdatalake` in the bucket name where data is to be written in parquet.
+1.4 Click on Target node on the graph next. Select Format as Parquet, Compression Type as None and browse and select S3 location with **`dmslabs3bucket`** in the bucket name where data is to be written in parquet.
     {{< img "etl1-target1.png" "etl1-target1" >}} 
 We have not created target folder so lets add it to the S3 Target Location path as shown, which Glue will create for us. We should have one folder per target table. Since it is parquet data we will store the data under parquet folder. Append `parquet/enigma_jhu/` to the S3 bucket path you have selected OR you could just paste the whole path similar to `s3://labdatalake/parquet/enigma_jhu/`
     {{< img "etl1-target1-path.png" "etl1-target1-path" >}}   
@@ -52,7 +52,7 @@ We have not created target folder so lets add it to the S3 Target Location path 
 {{% notice info %}}
 The actual bucket name for your lab will be similar NOT exactly the same
 {{% /notice %}}
-2.3 Target S3 node with Format = Parquet and S3 target location similar to `s3://labdatalake/parquet/hospital_beds/`  
+2.3 Target S3 node with Format = Parquet and S3 target location similar to `s3://labdatalake/parquet/hospital_beds/` . S3 bucket would have **`dmslabs3bucket`** in the name.  
 2.4 On Job details tab input following; Name = `hospital_beds_parquet_job`
     IAM Role = `AWSGlueServiceRole-labdatalake`, Job bookmark = `Disable`.  
     Click Save.  

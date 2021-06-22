@@ -11,7 +11,7 @@ In this lab, we will use interactive query service Athena to query processed and
 {{% notice info %}}
 Screenshot is only for illustration purpose, the actual bucket name for your lab will be similar NOT exactly the same
 {{% /notice %}}
-1.1 Click on Settings, input Query result location as s3://**<<labdatalake>>**/athenaqueryresults/ and click Save.
+1.1 Click on Settings, input Query result location as s3://**<<dmslabs3bucket>>**/athenaqueryresults/ and click Save.
     {{< img "athena-settings.png" "athena-settings1" >}} 
     {{< img "athena-settings2.png" "athena-settings2" >}}   
 1.2 Console is ready to query now. Select Database as `dms_docdb` from left navigation pane.
@@ -40,7 +40,7 @@ This way you can query parquet files on S3 location directly using SQL on Athena
     sum(num_staffed_beds) as num_staffed_beds, 
     sum(num_icu_beds) as num_icu_beds
     FROM 
-    "covid-19"."hospital_beds" beds, 
+    "dms_docdb"."hospital_beds" beds, 
     ( SELECT 
         fips, 
         admin2, 
@@ -50,7 +50,7 @@ This way you can query parquet files on S3 location directly using SQL on Athena
         first_value(last_update) over (partition by fips order by last_update desc) as most_recent,
         last_update
         FROM  
-        "covid-19"."enigma_jhu" 
+        "dms_docdb"."enigma_jhu" 
         WHERE 
         country_region = 'US') cases
     WHERE 

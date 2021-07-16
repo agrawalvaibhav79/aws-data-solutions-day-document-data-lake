@@ -21,19 +21,20 @@ chapter = true
 ```
 7. Let’s get the Covid 19 data sets. 
     ```bash 
-    aws s3 ls s3://covid19-lake/enigma-jhu/json/ #(This will get us the current file name that we use in step b) 
+    aws s3 ls s3://covid19-lake/enigma-jhu/json/ #(This will get us the current file name that we use in next step) 
 
     aws s3 cp s3://covid19-lake/enigma-jhu/json/UseTheFileNameFromThePreviousStep.json UseTheFileNameFromThePreviousStep.json #Note use the file name returned from the previous step. 
-    
+
     aws s3 cp s3://covid19-lake/rearc-usa-hospital-beds/json/usa-hospital-beds.geojson usa-hospital-beds.geojson
     ```
-8. Now let's load the data sets. Be sure to replace the file name in 8a with the output of 7a. Be sure to replace the host from the cloudformation output.
+8. Now let's load the data sets. Be sure to replace the file name in the first command with the output step 7 above. Be sure to replace the host from the cloudformation output.
     ```bash
     mongoimport --ssl --host=mod-YourClusterFromCFNOutput.docdb.amazonaws.com:27017 --collection=enigma-jhu --db=Covid19 --file=UseTheFileNameFromStep7.json --numInsertionWorkers=4 --username=dbmaster --sslCAFile rds-combined-ca-bundle.pem --password=dbmaster123 
 
     mongoimport --ssl --host=labdatalake-YourClusterFromCFNOutput.docdb.amazonaws.com:27017 --collection=rearc-usa-hospital-beds --db=Covid19 --file=usa-hospital-beds.geojson --numInsertionWorkers 4 --username=dbmaster --sslCAFile=rds-combined-ca-bundle.pem --password=dbmaster123
     ```
 9. Let’s create a DMS replication instance. Go to the [DMS console](https://us-east-2.console.aws.amazon.com/dms/v2/home?region=us-east-2#firstRun) and click on create replication instance.
+
 {{< img "dms1.png" "DMS step1" >}}
 10. Fill out the dialog as shown:
 {{< img "dms2.png" "DMS step2" >}} 

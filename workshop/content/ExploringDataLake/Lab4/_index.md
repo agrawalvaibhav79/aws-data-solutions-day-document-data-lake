@@ -40,7 +40,7 @@ This way you can query parquet files on S3 location directly using SQL on Athena
     sum(num_staffed_beds) as num_staffed_beds, 
     sum(num_icu_beds) as num_icu_beds
     FROM 
-    "dms_docdb"."hospital_beds" beds, 
+    "dms_docdb"."parquet_hospital_beds" beds, 
     ( SELECT 
         fips, 
         admin2, 
@@ -50,7 +50,7 @@ This way you can query parquet files on S3 location directly using SQL on Athena
         first_value(last_update) over (partition by fips order by last_update desc) as most_recent,
         last_update
         FROM  
-        "dms_docdb"."enigma_jhu" 
+        "dms_docdb"."parquet_enigma_jhu" 
         WHERE 
         country_region = 'US') cases
     WHERE 

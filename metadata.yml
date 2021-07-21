@@ -1,9 +1,9 @@
 #name - DNS-friendly name for the workshop. This will be used when generating the hosting URL (ie. https://my-first-workshop.workshops.aws/)
-name: my-first-workshop
+name: document-data-lake
 #title - The title of your workshop
-title: My First Workshop 
+title: aws data solutions day 
 #description - A short description that will be displayed in search results
-description: Creating unicorns with serverless bitcoin magic! 
+description: Solution to use document data from DocDB into an S3 based data lake. 
 #categories - Refer to official AWS categories covered by the workshop content here
 categories: 
   - Networking

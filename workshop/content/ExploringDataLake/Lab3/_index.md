@@ -9,12 +9,14 @@ chapter = true
 1.  Go to [Glue crawler](https://us-east-2.console.aws.amazon.com/glue/home?region=us-east-2#catalog:tab=crawlers) again to create another crawler.  
 1.1 Click on Add crawler and input as below
     On Crawler info> Crawler name = `lab_parquet_crawler`. Click Next.
-    {{% notice info %}}
-    The actual bucket name for your lab will be similar NOT exactly the same
-    {{% /notice %}}
-    For Data store, Include path similar to `s3://labdatalake/parquet/`. Lab bucket will have **`dmslabs3bucket`** in the name.
+{{% notice info %}}
+Screenshot is only for illustration purpose, the actual bucket name comes from the Cloudformation Outputs>Bucket name key's value as shown in previous database lab
+{{% /notice %}}
+    For Crawler store type, keep everything default. Click Next
+    For Data store, Choose as S3 and browse S3 bucket path and pick one with **`dmslabs3bucket`** in the name and **`parquet`** folder under it. Choose No for add another store and click Next.
     For IAM role, select Choose an existing IAM role and pick the one with **`GlueLabRole`** in the name we have been using all along.
-    For output, select the `dms_docdb` and for prefix input `parquet_` to differentiate tables in the same database for the lab.
+    For Schedule, keep default Run on demand and click Next
+    For Output, select the `dms_docdb` from drop down and for prefix enter `parquet_` to differentiate tables in the same database for the lab.
     Finally, Finish and run the crawler as before.   
 1.2 Crawler will run and add 2 tables as shown below:
     {{< img "crawler-parquet.png" "crawler-parquet" >}}   

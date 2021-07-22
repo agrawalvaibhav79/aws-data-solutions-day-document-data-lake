@@ -12,9 +12,9 @@ In this lab, you will create Quicksight account and use the data from Athena lab
     Then on the new tab, click on Sign up button.    
     {{< img "search-qs.png" "search-qs" >}} 
     {{< img "qs-signup-button.png" "qs-signup-button" >}} 
-1.1 Select Enterprise option and Continue
+1.1 Select Enterprise option and Continue    
 1.2 Keep everything as default, except 
-    QuickSight account name - it should be a unique name, typically your email-id without domain+date in DDMMYYYY format should be good enough
+    QuickSight account name - it should be a unique name, typically your email-id without domain+date in DDMMYYYY format should be good enough  
     Notification email address - it should be your office email
     Click Finish
     {{< img "qs-account.png" "qs-account" >}} 
@@ -25,7 +25,7 @@ In this lab, you will create Quicksight account and use the data from Athena lab
     {{< img "qs-land.png" "qs-land" >}} 
 
 #### Create dataset
-1.  Click on Datasets on the left pane, then click on **New dataset** button on top right
+1.  Click on Datasets on the left pane, then click on **New dataset** button on top right   
 1.1 Ensure you are in Ohio or us-east-2 region
     {{< img "qs-region.png" "qs-region" >}} 
 1.2 You should see various data sources it can connect to, click on Athena
@@ -50,7 +50,7 @@ In this lab, you will create Quicksight account and use the data from Athena lab
 {{% notice info %}}
 Screenshot is only for illustration purpose, the actual data may change during the lab. The idea is to show to you ease of use of QuickSight, some of its features and give you hands-on experience using it.
 {{% /notice %}}
-1.  By default, AutoGraph is selected as visual type. It charts your data automatically using the most approprite visual for the data you choose.
+1.  By default, AutoGraph is selected as visual type. It charts your data automatically using the most approprite visual for the data you choose.   
 1.1 In the field list click on `# confirmed` field. By default, AutoGraph will show the Sum of confirmed covid cases as metric in the tile. Take a moment to review as shown below -
     {{< img "qs-autograph-number.png" "qs-autograph-number" >}} 
     You will see a blue outline around the visual tile, which means the tile is currently selected.
@@ -69,7 +69,7 @@ Screenshot is only for illustration purpose, the actual data may change during t
     {{< img "qs-visual-edit-ds4.png" "qs-visual-edit-ds4" >}} 
 
     Click on Save & visualize button again to go back to Visual canvas. In the visual canvas, you will notice icon next to last_update is changed to a calendar denoting it has Date datatype now.    
-1.4 Next lets select Line chart for the next Visual type. First click on `+Add` button on top left of the page and choose Add visual to add anothe tile to the canvas.
+1.4 Next lets select Line chart for the next Visual type. First click on `+Add` button on top left of the page and choose Add visual to add another tile to the canvas.
 For this visual, lets select `last_update` on X-axis and `confirmed` as the value which you are tracking by it.
     {{< img "qs-add-visual.png" "qs-add-visual" >}} 
 
@@ -86,29 +86,31 @@ For this visual, lets select `last_update` on X-axis and `confirmed` as the valu
     As things are now, last_update is shown at date granularity. You can change that to Week (or anything else), by clicking on the dropdown next to last_update column in the Field wells on the top of the tile.
     {{< img "qs-visual-line4.png" "qs-visual-line4" >}}
 1.5 Next lets use some ML features out of the box.   
-    1.5.1 Forecast
+    1.5.1 Forecast   
             While you have the Line chart tile selected. On its right edge, click on ellipses and Add forecast
             {{< img "qs-visual-line5.png" "qs-visual-line5" >}}
     QuickSight used the existing data and created an Orange colored line forecasting for next 14 periods (defaul) in future. The more the data, the better is forecasting as it is with any ML algorithm. You can change the Periods and use this feature without writing a single line of code.   
 
             {{< img "qs-visual-line6.png" "qs-visual-line6" >}}
-    1.5.2 Natural language narrative
+    1.5.2 Natural language narrative   
             While it is always good to have charts and visuals. You can enrich them by adding narratives in English. QuickSight automatically generates them for you depending on the data for a visual. Lets click on the left pane, on Insights button. You will see a list of suggested insights, which you can add using the `=` next to it.
             Lets click `+` next to Highest Week and Lowest Week metrics. You can then position the tiles right above line chart as it is related to that.
             {{< img "qs-visual-line7.png" "qs-visual-line7" >}}
             {{< img "qs-visual-line8.png" "qs-visual-line8" >}}
             {{< img "qs-visual-line9.png" "qs-visual-line9" >}}
     1.5.3 Geospatial visual   
-            Finally, lets create a geospatial visual.
+            Finally, lets create a geospatial visual. Click outside the current selected visual in empty area.
             Again from top left corner click on `+ Add visual` button to add a new visual. Select `Point on map` visual type from the menu.
             Then from Fields list, click on State_name, Confirmed and county_name columns. Expand the tile by dragging the edges, to cover more space on the canvas.
             {{< img "qs-visual-geo1.png" "qs-visual-geo1" >}}
 
-            Click on the gear icon on the visual tile, to open Format visual menu. From there, click on Legend and uncheck `Show legend` box.
+            Click on the gear icon on the visual tile, to open Format visual menu. From there, click on Legend and uncheck `Show legend` box.   
+
             {{< img "qs-visual-geo2.png" "qs-visual-geo2" >}}
             {{< img "qs-visual-geo3.png" "qs-visual-geo3" >}}
 
-            On the map, you can now hover on any state, and see information about the counties under the state.
+            On the map, you can now hover on any state, and see information about the counties under the state.   
+
             {{< img "qs-visual-geo4.png" "qs-visual-geo4" >}}
 
 This lab gave you a good overview of visuals and how to use them on QuickSight. You can add actions for end users on QuickSight visuals too. Please read more about [filters](https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html) and [drill-downs](https://docs.aws.amazon.com/quicksight/latest/user/adding-drill-downs.html)

@@ -9,14 +9,14 @@ In this lab, we will use interactive query service Athena to query processed and
 
 1.  Go to [Athena console](https://us-east-2.console.aws.amazon.com/athena/home?region=us-east-2#query). First step is to get Athena setup to query successfully. This is a one-time setup for new accounts.   
 {{% notice info %}}
-Screenshot is only for illustration purpose, the actual bucket name for your lab will be similar NOT exactly the same
+Screenshot is only for illustration purpose, the actual bucket name for your lab is from Cloudformation Outputs tab
 {{% /notice %}}
-1.1 Click on Settings, input Query result location as s3://**<<dmslabs3bucket>>**/athenaqueryresults/ and click Save.
+1.1 Click on Settings, enter Query result location by browsing and selecting the bucket s3://**<<dmslabs3bucket>>**/ and appending folder name as **`athenaqueryresults/`** and click Save.
     {{< img "athena-settings.png" "athena-settings1" >}} 
     {{< img "athena-settings2.png" "athena-settings2" >}}   
-1.2 Console is ready to query now. Select Database as `dms_docdb` from left navigation pane.
+1.2 Console is ready to query now. Select Database as `dms_docdb` from left navigation pane under `Databases` if it is already not selected. You should see four tables are available to query.
     {{< img "athena-query-editor.png" "athena-query-editor" >}}    
-1.3 You cannot run multiple queries at the same time, so run below queries one by one OR copy and paste both but select and highlight one and run it one at a time by doing the same. OR use multiple query tabs
+1.3 Please note -You cannot run multiple queries at the same time, so run below queries one by one OR copy and paste both but select and highlight one and run it one at a time by doing the same OR use multiple query tabs
 ```bash
 SELECT * FROM "dms_docdb"."parquet_enigma_jhu" limit 10;
 ```
@@ -61,18 +61,18 @@ This way you can query parquet files on S3 location directly using SQL on Athena
 
 {{< img "athena-query2.png" "athena-query2" >}} 
 
-1.5 In Athena you can do several things with this query
+1.5 In Athena you can do several things with this query    
     a.  You can use Save as to save this query, so that you can come back to it everytime you want to run it. Lets click on Save as button
     {{< img "athena-query-saveas1.png" "athena-query-saveas1" >}}   
     {{< img "athena-query-saveas2.png" "athena-query-saveas2" >}}  
     Click on Saved queries tab on the top, to access it  
     {{< img "athena-saved-query.png" "athena-saved-query" >}}  
-    b.  You can create a View. From the same query editor tab, now click on Create button as shown to select `Create view from query` option.  
+    b.  You can create a View. From the same query editor tab, now click on Create button as shown to select `Create view from query` option.  (if Create button is not active, please click on Run query button to run and that should activate Create button for you Create view)
     {{< img "athena-create-view.png" "athena-create-view" >}}   
     Provide name as `covid_cases_by_usa_view` and click on Create button  
     {{< img "athena-create-view2.png" "athena-create-view2" >}} 
     {{< img "athena-create-view3.png" "athena-create-view3" >}} 
-    c.  You can create a new Table **(Try on your own)**
+    c.  **(Optional: Try on your own)** You also can create a new Table from the Create button options
         You will provide S3 location and file format you want to store data into this new table. This gives analyst simple ETL mechanism using SQL where they can deploy ETL logic and create a table and data files on another S3 location. They may need for intermediate processing or sharing it with other users.
 
-With this you are done trying out how you can leverage Athena for your interactive data query needs on your data lake. This gives you a powerful tool in the hands of your data analysts or data scientists to explore data using SQL. In the next lab we will use Amazon Quicksight to create some visuals and dashboards to show how easily you can consume same data on data lake via different types of tools.
+With this you are done trying out how you can leverage Athena for your interactive data query needs on your data lake. This gives you a powerful tool in the hands of your data analysts or data scientists to explore data using SQL. In the next lab we will use Amazon Quicksight to create some visuals and dashboards.

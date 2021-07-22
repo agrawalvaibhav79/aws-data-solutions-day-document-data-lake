@@ -102,14 +102,16 @@ For this visual, lets select `last_update` on X-axis and `confirmed` as the valu
             Finally, lets create a geospatial visual. Click outside the current selected visual in empty area.
             Again from top left corner click on `+ Add visual` button to add a new visual. Select `Point on map` visual type from the menu.
             Then from Fields list, click on State_name, Confirmed and county_name columns. Expand the tile by dragging the edges, to cover more space on the canvas.
-            {{< img "qs-visual-geo1.png" "qs-visual-geo1" >}}
+            {{< img "qs-visual-geo1.png" "qs-visual-geo1" >}}  
 
             Click on the gear icon on the visual tile, to open Format visual menu. From there, click on Legend and uncheck `Show legend` box.   
+            
 
             {{< img "qs-visual-geo2.png" "qs-visual-geo2" >}}
             {{< img "qs-visual-geo3.png" "qs-visual-geo3" >}}
 
-            On the map, you can now hover on any state, and see information about the counties under the state.   
+            On the map, you can now hover on any state, and see information about the counties under the state.     
+
 
             {{< img "qs-visual-geo4.png" "qs-visual-geo4" >}}
 

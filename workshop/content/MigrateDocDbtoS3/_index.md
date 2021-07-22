@@ -4,7 +4,8 @@ date = 2021-03-17T18:13:14-04:00
 weight = 10
 chapter = true
 +++
-
+Lab architecture flow is as below:
+{{< img "dms_lab_arch.png" "dms lab arch" >}}  
 #### Let's connect to DocumentDB cluster and prepare the data
 1. Navigate to [CloudFormation](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2). 
 2. Click on the stack(mod-XXXXXXX) and then the outputs tab.

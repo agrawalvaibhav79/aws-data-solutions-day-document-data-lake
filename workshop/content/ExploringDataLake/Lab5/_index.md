@@ -105,15 +105,15 @@ For this visual, lets select `last_update` on X-axis and `confirmed` as the valu
             {{< img "qs-visual-geo1.png" "qs-visual-geo1" >}}  
 
             Click on the gear icon on the visual tile, to open Format visual menu. From there, click on Legend and uncheck `Show legend` box.   
-            
 
-            {{< img "qs-visual-geo2.png" "qs-visual-geo2" >}}
-            {{< img "qs-visual-geo3.png" "qs-visual-geo3" >}}
+
+                {{< img "qs-visual-geo2.png" "qs-visual-geo2" >}}
+                {{< img "qs-visual-geo3.png" "qs-visual-geo3" >}}
 
             On the map, you can now hover on any state, and see information about the counties under the state.     
 
 
-            {{< img "qs-visual-geo4.png" "qs-visual-geo4" >}}
+                {{< img "qs-visual-geo4.png" "qs-visual-geo4" >}}
 
 This lab gave you a good overview of visuals and how to use them on QuickSight. You can add actions for end users on QuickSight visuals too. Please read more about [filters](https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html) and [drill-downs](https://docs.aws.amazon.com/quicksight/latest/user/adding-drill-downs.html)
 

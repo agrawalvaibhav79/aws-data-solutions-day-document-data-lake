@@ -87,10 +87,9 @@ For this visual, lets select `last_update` on X-axis and `confirmed` as the valu
     {{< img "qs-visual-line4.png" "qs-visual-line4" >}}
 1.5 Next lets use some ML features out of the box.   
     1.5.1 Forecast   
-            While you have the Line chart tile selected. On its right edge, click on ellipses and Add forecast
+    While you have the Line chart tile selected. On its right edge, click on ellipses and Add forecast
             {{< img "qs-visual-line5.png" "qs-visual-line5" >}}
     QuickSight used the existing data and created an Orange colored line forecasting for next 14 periods (defaul) in future. The more the data, the better is forecasting as it is with any ML algorithm. You can change the Periods and use this feature without writing a single line of code.   
-
             {{< img "qs-visual-line6.png" "qs-visual-line6" >}}
     1.5.2 Natural language narrative   
             While it is always good to have charts and visuals. You can enrich them by adding narratives in English. QuickSight automatically generates them for you depending on the data for a visual. Lets click on the left pane, on Insights button. You will see a list of suggested insights, which you can add using the `=` next to it.
@@ -104,15 +103,12 @@ For this visual, lets select `last_update` on X-axis and `confirmed` as the valu
             Then from Fields list, click on State_name, Confirmed and county_name columns. Expand the tile by dragging the edges, to cover more space on the canvas.
             {{< img "qs-visual-geo1.png" "qs-visual-geo1" >}}  
 
-            Click on the gear icon on the visual tile, to open Format visual menu. From there, click on Legend and uncheck `Show legend` box.   
+    Click on the gear icon on the visual tile, to open Format visual menu. From there, click on Legend and uncheck `Show legend` box.   
+    {{< img "qs-visual-geo2.png" "qs-visual-geo2" >}}  
 
+    {{< img "qs-visual-geo3.png" "qs-visual-geo3" >}}
 
-                {{< img "qs-visual-geo2.png" "qs-visual-geo2" >}}
-                {{< img "qs-visual-geo3.png" "qs-visual-geo3" >}}
-
-            On the map, you can now hover on any state, and see information about the counties under the state.     
-
-
+    On the map, you can now hover on any state, and see information about the counties under the state.     
                 {{< img "qs-visual-geo4.png" "qs-visual-geo4" >}}
 
 This lab gave you a good overview of visuals and how to use them on QuickSight. You can add actions for end users on QuickSight visuals too. Please read more about [filters](https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html) and [drill-downs](https://docs.aws.amazon.com/quicksight/latest/user/adding-drill-downs.html)

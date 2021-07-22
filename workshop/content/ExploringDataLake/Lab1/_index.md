@@ -9,7 +9,7 @@ chapter = true
 #### Create Glue crawler #1
 1.  Use AWS Management Console to search for `AWS Glue` and if using Google Chrome, right click and open in new tab in the browser as shown. Make sure region is Ohio.
 {{< img "search-glue.png" "search glue" >}}
-1.1 On [Glue console](https://us-east-2.console.aws.amazon.com/glue/home?region=us-east-2), in left navigation pane, click on Cralwers>Add crawler
+1.1 On [Glue console](https://us-east-2.console.aws.amazon.com/glue/home?region=us-east-2), in left navigation pane, click on Crawlers>Add crawler
 {{< img "crawler-console.png" "go to crawler" >}}
 1.2 Enter Crawler name as `dms_source_jhu_crawler` and click Next
 {{< img "crawler1.png" "go to crawler1" >}}
@@ -17,13 +17,12 @@ chapter = true
 {{% notice info %}}
 Screenshot is only for illustration purpose, the actual bucket name is available with Cloudformation Outputs>Bucketname key's value as shown with the previous database lab
 {{% /notice %}}      
-1.4 For Add a data store- 
-    keep S3 selected, 
-    Connection as blank, 
-    Crawl data in with Specified path in my account, 
+1.4 For Add a data store- keep S3 selected,  
+    Connection as blank,   
+    Crawl data in with Specified path in my account,   
     For Include path select the S3 bucket and folder where the DMS ingested data is stored; similar to s3://**<<dmslabs3bucket>>**/Covid19/enigma-jhu and click Next
     {{< img "crawler-datastore.png" "jhu crawler data store" >}}
-1.5 For Add another data store keep default as No and click Next  
+1.5 For Add another data store keep default as No and click Next      
 1.6 For Choose an IAM role - select a Role with **GlueLabRole** in the name as shown below and click Next
     {{< img "crawler-role.png" "crawler role" >}}
 1.7 For Schedule, pick Run on demand option and click Next    

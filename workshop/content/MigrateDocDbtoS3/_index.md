@@ -23,16 +23,18 @@ Lab architecture flow is as below:
 7. Let’s get the Covid 19 data sets. 
     ```bash 
     aws s3 ls s3://covid19-lake/enigma-jhu/json/ #(This will get us the current file name that we use in next step) 
-
+    ```
+    ```bash 
     aws s3 cp s3://covid19-lake/enigma-jhu/json/UseTheFileNameFromThePreviousStep.json UseTheFileNameFromThePreviousStep.json #Note use the file name returned from the previous step. 
-
+    ```
+    ```bash 
     aws s3 cp s3://covid19-lake/rearc-usa-hospital-beds/json/usa-hospital-beds.geojson usa-hospital-beds.geojson
     ```
-8. Now let's load the data sets. Be sure to replace the file name in the first command with the output step 7 above. Be sure to replace the host from the cloudformation output.
+8. Now let's load the data sets. Be sure to replace the file name in the first command with the output step 7 above. Be sure to replace the host with the value of DocumentDBCluster that we saved from the CloudFormation output.
     ```bash
-    mongoimport --ssl --host=mod-YourClusterFromCFNOutput.docdb.amazonaws.com:27017 --collection=enigma-jhu --db=Covid19 --file=UseTheFileNameFromStep7.json --numInsertionWorkers=4 --username=dbmaster --sslCAFile rds-combined-ca-bundle.pem --password=dbmaster123 
+    mongoimport --ssl --host=mod-YourClusterFromCFNOutput.docdb.amazonaws.com:27017 --collection=enigma-jhu --db=Covid19 --file=UseTheFileNameFromThePreviousStep.json --numInsertionWorkers=4 --username=dbmaster --sslCAFile rds-combined-ca-bundle.pem --password=dbmaster123 
 
-    mongoimport --ssl --host=labdatalake-YourClusterFromCFNOutput.docdb.amazonaws.com:27017 --collection=rearc-usa-hospital-beds --db=Covid19 --file=usa-hospital-beds.geojson --numInsertionWorkers 4 --username=dbmaster --sslCAFile=rds-combined-ca-bundle.pem --password=dbmaster123
+    mongoimport --ssl --host=mod-YourClusterFromCFNOutput.docdb.amazonaws.com:27017 --collection=rearc-usa-hospital-beds --db=Covid19 --file=usa-hospital-beds.geojson --numInsertionWorkers 4 --username=dbmaster --sslCAFile=rds-combined-ca-bundle.pem --password=dbmaster123
     ```
 9. Let’s create a DMS replication instance. Go to the [DMS console](https://us-east-2.console.aws.amazon.com/dms/v2/home?region=us-east-2#firstRun) and click on create replication instance.
 
@@ -42,9 +44,9 @@ Lab architecture flow is as below:
 
 {{< img "dms3.png" "DMS step3" >}} 
 
-11. Click on endpoints and then create endpoint. Create the source endpoint to DocumentDB by filling out the dialog as below using the endpoint of your cluster. Add new CA certificate with this [file.](https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem) After the dialog is filled out, please test the connection and then hit create endpoint.
+11. Click on endpoints and then create endpoint. Create the source endpoint to DocumentDB by filling out the dialog as below using the endpoint of your cluster. Add new CA certificate with this [file.](https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem) After the dialog is filled out, please test the connection and then hit create endpoint. Please note that password is dbmaster123
 {{< img "docsourceendpoint.png" "Source Endpoint" >}}
-12. Click on endpoints and then create endpoint. Create the target endpoint to S3 by filling out the dialog as below. After the dialog is filled out, please test the connection and then hit create endpoint.
+12. Click on endpoints and then create endpoint. Create the target endpoint to S3 by filling out the dialog as below. After the dialog is filled out, please test the connection and then hit create endpoint. Note that the buckname is listed in the CloudFormation output as BucketName. The Service Access Role ARN is in the CloudFormation output as DMSLabRoleS3. Be sure at add "addColumnName=true;" under extra connection attribute without quotes.
 {{< img "TargetEndpoint.JPG" "S3 target" >}}
 13. Click on database migration tasks and then create task.
 14. Fill out the task configuration as show below.
@@ -56,3 +58,4 @@ Lab architecture flow is as below:
 17. Click create task.
 18. After your task is created, click on it and then click on the the table statistics tab. We want to verify the status.
 {{< img "TaskResults.PNG" "Task Results" >}}
+19. Let us verify the data by navigating to [s3.](https://s3.console.aws.amazon.com/s3/home?region=us-east-2) Click on your bucket > Covid19 > enigma-jhu. Check the box to highlight the csv file. On the action menu, select "Query with s3 select". Scroll down and select "Run SQL Query". Do the same for the file in the "rearc-usa-hospital-beds" folder.

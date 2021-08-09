@@ -19,6 +19,9 @@ In this lab, you will create Quicksight account and use the data from Athena lab
     Click Finish
     {{< img "qs-account.png" "qs-account" >}} 
     {{< img "qs-account2.png" "qs-account2" >}} 
+
+    Ensure you check the S3 bucket option as below. This will ensure you can create a dataset using S3 data from QuickSight.
+    {{< img "qs-account3.png" "qs-account3" >}} 
     In couple minutes you should have a new Quicksight account. Click on Go to Amazon QuickSight
     {{< img "qs-congrats.png" "qs-account-done" >}} 
 1.3 You are ready to work with QuickSight now once you see this

@@ -7,6 +7,9 @@ chapter = true
 Lab architecture flow is as below:
 {{< img "dms_lab_arch.png" "dms lab arch" >}}  
 #### Let's connect to DocumentDB cluster and prepare the data
+{{% notice info %}}
+Please ensure you are in us-east-2 or Ohio region on the AWS Management console. We will perform all the labs in that region
+{{% /notice %}}
 1. Navigate to [CloudFormation](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2). 
 2. Click on the stack(mod-XXXXXXX) and then the outputs tab.
 {{< img "cfn.png" "Cloudformation" >}}

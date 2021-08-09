@@ -7,6 +7,10 @@ chapter = true
 
 
 #### Create Glue crawler #1
+
+{{% notice info %}}
+Please ensure you are in us-east-2 or Ohio region on the AWS Management console. We will perform all the labs in that region
+{{% /notice %}}
 1.  Use AWS Management Console to search for `AWS Glue` and if using Google Chrome, right click and open in new tab in the browser as shown. Make sure region is Ohio.
 {{< img "search-glue.png" "search glue" >}}
 1.1 On [Glue console](https://us-east-2.console.aws.amazon.com/glue/home?region=us-east-2), in left navigation pane, click on Crawlers>Add crawler
